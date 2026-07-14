@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Checkpoints
+checkpoints/
+
+# Logs
+logs/
+
+# Large datasets
+data/raw/
+data/processed/
+
+# Model Weights
+*.pt
+*.pth
+
+# Cache
+.cache/
