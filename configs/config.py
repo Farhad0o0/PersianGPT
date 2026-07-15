@@ -14,7 +14,7 @@ class GPTConfig:
     prefetch_factor = 2
     persistent_workers = True
 
-    save_every_epoch = True
+    save_every_epoch = 1
     save_best_model = True
 
     log_interval = 100
@@ -45,7 +45,7 @@ class GPTConfig:
     # Training
     # ======================
 
-    batch_size: int = 16
+    batch_size: int = 64
     learning_rate: float = 3e-4
     weight_decay: float = 0.01
     epochs: int = 10

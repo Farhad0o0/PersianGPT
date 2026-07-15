@@ -6,6 +6,19 @@ import numpy as np
 from torch.utils.data import IterableDataset
 
 
+def __iter__(self):
+    worker_info = torch.utils.data.get_worker_info()
+    if worker_info is None:
+        seed = self.base_seed
+    else:
+        seed = self.base_seed + worker_info.id  # هر worker seed متفاوت
+
+    rng = np.random.default_rng(seed)
+    while True:
+        idx = rng.integers(0, len(self.tokens) - self.seq_len)
+        chunk = self.tokens[idx : idx + self.seq_len + 1]
+        yield torch.from_numpy(chunk[:-1].astype(np.int64)), torch.from_numpy(chunk[1:].astype(np.int64))
+
 
 class PersianDataset(IterableDataset):
 
